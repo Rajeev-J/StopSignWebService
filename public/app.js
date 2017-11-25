@@ -28,13 +28,11 @@ var vm = new Vue({
                     lat: this.sign.lat,
                     lng: this.sign.lng
                 }).then(response => {
-                    console.log(response);
-
-                    // get body data
-                    console.log(response.body);
+                    alert("Successfully added the Sign");
 
                 }, error => {
                     console.log(error);
+                    alert("Error Code: " + error.status + ".\nMessage: " + error.data);
                 });
                 this.sign = {
                     name: '',
@@ -42,7 +40,7 @@ var vm = new Vue({
                     lat: ''
                 };
             } else {
-                //TODO: alert user to fill it in
+                alert("Please fill in all the values.");
             }
         },
 
@@ -58,6 +56,7 @@ var vm = new Vue({
                     console.log(response);
                 }, function(error) {
                     console.log(error);
+                    alert("Error Code: " + error.status + ".\nMessage: " + error.data);
                 });
                 this.signSearch = {
                     radius: '',
@@ -65,7 +64,7 @@ var vm = new Vue({
                     lat: ''
                 };
             } else {
-                //TODO: alert user to fill in
+                alert("Please fill in all the values.");
             }
         },
 
@@ -76,6 +75,7 @@ var vm = new Vue({
                 console.log(response.data);
             }, function(error) {
                 console.log(error);
+                alert("Error Code: " + error.status + ".\nMessage: " + error.data);
             });
         },
 

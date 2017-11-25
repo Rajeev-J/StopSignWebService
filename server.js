@@ -24,8 +24,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 //set up static files
-app.use(express.static('./api/public'));
-console.log(__dirname + '/node_modules/');
+app.use(express.static('./public'));
 app.use('/scripts', express.static(__dirname + '/node_modules/'));
 app.use(bodyParser.json());
 

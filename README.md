@@ -1,5 +1,5 @@
 Problem:
-The intent is to design web services that receive road sign observation from multiple vehicles. 
+The intent is to design web services that receives road sign observation from multiple vehicles. 
 The web service should adhere to the following requirements:
 
 - Receive one road sign observation at a time and store it
