@@ -48,4 +48,7 @@ Deployment:
 The web service is deployed in the Azure Cloud.
 
 Live Link: 
+
+# *** Azure cosmosDB suddenly started to fail for distinct() calls. Please run this locally to obtain the distinct type functionality until it's resolved ***
+
 You can access the service via http://bmwtestapp.azurewebsites.net/
