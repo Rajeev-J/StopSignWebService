@@ -1,0 +1,90 @@
+
+<!-- index.html -->
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>BMW Traffic Sign Service</title>
+      <!-- CSS -->
+      <link rel="stylesheet"  href="scripts/bootstrap/dist/css/bootstrap.min.css">
+   </head>
+   <body>
+      <!-- navigation bar -->
+      <nav class="navbar navbar-default">
+         <div class="container-fluid">
+            <a class="navbar-brand"><i class="glyphicon glyphicon-road"></i> BMW Traffic Sign Service</a>
+         </div>
+      </nav>
+      <!-- main body of our application -->
+      <div class="container" id="signs">
+         <!-- add an sign form -->
+         <div class="col-sm-6">
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <h3>Add a Sign</h3>
+               </div>
+               <div class="form-group">
+                  <div class="form-group">
+                     <label>Sign Type</label>
+                     <input class="form-control"  v-model="sign.name">
+                  </div>
+                  <label>Longitude</label>
+                  <input class="form-control" type="number" v-model="sign.lng">
+               </div>
+               <div class="form-group">
+                  <label>Latitude</label>
+                  <input class="form-control" type="number" v-model="sign.lat">
+               </div>
+               <button type="submit" class="btn btn-primary" v-on:click="addSign">Submit</button>
+            </div>
+            <div>
+               <button type="fetch" class="btn btn-primary" v-on:click="fetchDistinctTypes">Fetch Distinct Types</button>
+               <div class="list-group">
+                  <a href="#" class="list-group-item" v-for="type in distinctTypes">
+                     <h4 class="list-group-item-heading">
+                        {{ type }}
+                     </h4>
+                  </a>
+               </div>
+            </div>
+         </div>
+         <!-- show the signs -->
+         <div class="col-sm-6">
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <h3>Fetch Signs within a radius</h3>
+               </div>
+            </div>
+            <div class="form-group">
+               <label>Longitude</label>
+               <input class="form-control" type="number" v-model="signSearch.lng">
+            </div>
+            <div class="form-group">
+               <label>Latitude</label>
+               <input class="form-control" type="number" v-model="signSearch.lat">
+            </div>
+            <div class="form-group">
+               <label>Radius in Miles</label>
+               <input class="form-control" p type="number" v-model="signSearch.radius">
+            </div>
+            <button type="fetch" class="btn btn-primary" v-on:click="fetchSignsInRadius">Fetch Signs in Radius</button>
+            <div class="list-group">
+               <a href="#" class="list-group-item" v-for="sign in signs">
+                  <h4 class="list-group-item-heading">
+                     {{ sign.name }}
+                  </h4>
+                  <h5> 
+                     {{ sign.loc }}
+                  </h5>
+               </a>
+            </div>
+            <form class="form-inline">
+         </div>
+      </div>
+      <!-- JS -->
+      <script src="scripts/vue/dist/vue.js"></script>
+      <script src="scripts/vue-resource/dist/vue-resource.js"></script>
+      <script src="app.js"></script>
+   </body>
+</html>
+
