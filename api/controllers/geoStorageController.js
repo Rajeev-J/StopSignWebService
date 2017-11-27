@@ -34,7 +34,7 @@ exports.list_all_signs = function(req, res) {
 
 exports.find_within_distance = function(req, res) {
     //Validate input
-    if (isNaN(req.body.radius) || !isValidLocationCoordinate(req.body.lat, req.body.lng)) {
+    if (isNaN(req.query.radius) || !isValidLocationCoordinate(req.query.lat, req.query.lng)) {
         console.log("Invalid parameters to find signs within distance");
         res.status(400).send('Invalid parameters!');
         return;
@@ -44,7 +44,7 @@ exports.find_within_distance = function(req, res) {
         'loc': {
             $geoWithin: {
                 $centerSphere: [
-                    [req.body.lng, req.body.lat], milesToRadian(req.body.radius)
+                    [req.query.lng, req.query.lat], milesToRadian(req.query.radius)
                 ]
             }
         }

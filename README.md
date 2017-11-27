@@ -19,7 +19,7 @@ When multiple vehicles report road signs based on their geographic location, we 
 The REST API is designed to have the following endpoints:
 - List all signs: GET: /geostore
 - Create a sign: POST /geostore
-- Find signs within a radius: POST /geostore/find
+- Find signs within a radius: GET /geostore/find
 - Get distinct sign types: GET /geostore/find/distincttype
 
 ###### Storage and Query by radius:

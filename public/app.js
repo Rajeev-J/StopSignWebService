@@ -46,11 +46,11 @@ var vm = new Vue({
 
         fetchSignsInRadius: function() {
             if (this.signSearch.radius && this.signSearch.lat && this.signSearch.lng) {
-                this.$http.post('http://localhost:3000/geostore/find', {
+                this.$http.get('http://localhost:3000/geostore/find', {params: {
                     radius: this.signSearch.radius,
                     lat: this.signSearch.lat,
                     lng: this.signSearch.lng
-                }).then(function(response) {
+                }}).then(function(response) {
                     console.log("Search success!");
                     this.signs = response.data;
                     console.log(response);
